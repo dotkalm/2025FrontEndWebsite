@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "rm -rf .next && tsx scripts/generate-all-data.ts && next build",
+    "build:data": "rm -rf .next && tsx scripts/generate-all-data.ts",
+    "build:static": "next build",
     "start": "next start",
     "lint": "eslint"
   },
@@ -24,11 +26,13 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
+    "@types/node": "^24.3.3",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
-    "typescript": "^5"
+    "tsx": "^4.20.5",
+    "typescript": "^5",
+    "webpack": "^5.101.3"
   }
 }

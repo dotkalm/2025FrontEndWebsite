@@ -1,4 +1,8 @@
 import { PortableTextBlock } from '@portabletext/types';
+import {
+  TSanityFile, 
+  TSanityImage
+} from '@/types'
 
 export interface TMetadata {
   lqip: string;
@@ -55,3 +59,27 @@ export type TReturnOptimizedImageUrl = (
   maxWidth?: number,
   maxHeight?: number
 ) => string;
+
+
+// remove the above 
+
+export interface TArtworkImage extends Omit<TSanityImage, '_type'> {
+  _type: 'artworkImage';
+}
+
+export interface TVideoAsset {
+  _type: 'videoAsset';
+  file: TSanityFile;
+  title?: string;
+  description?: string;
+}
+
+export interface TAudioAsset {
+  _type: 'audioAsset';
+  file: TSanityFile;
+  title?: string;
+  description?: string;
+}
+
+export type TArtworkAsset = TArtworkImage | TVideoAsset | TAudioAsset;
+

@@ -10,3 +10,5 @@ export * from './news';
 export * from './settings';
 export * from './staff';
 export * from './newsletter';
+
+export * from './sanity';
