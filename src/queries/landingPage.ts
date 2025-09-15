@@ -1,21 +1,35 @@
 export const LANDING_PAGE_QUERY = `
     *[_type == 'landingPage'][0]{
-    carousel[]->{
-        _id,
-        title,
-        "assetUrls": assets[]-> {
-        _id,
-        _type,
-        "url": select(
-            _type == "artworkImage" => image.asset->url,
-            _type == "videoAsset" => video.asset->url,
-            _type == "audioAsset" => audio.asset->url
-        )
-        },
-        "mainImageUrl": mainImage.asset->url,
-        mainImage{
-        alt,
-        caption
+        carousel[]->{
+            _id,
+            title,
+            caption,
+            year,
+            dimensions,
+            medium,
+            mainImage{
+                alt,
+                caption,
+                hotspot,
+                crop,
+                asset->{
+                    _id,
+                    url,
+                    originalFilename,
+                    title,
+                    path,
+                    size,
+                    metadata{
+                        blurHash,
+                        lqip,
+                        dimensions{
+                            width,
+                            height,
+                            aspectRatio
+                        }
+                    }
+                }
+            }
         }
     }
-}`
+`;

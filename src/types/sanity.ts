@@ -19,6 +19,7 @@ export interface TSanityImageAsset {
       aspectRatio: number;
     };
     lqip: string;
+    blurHash: string;
   };
 }
 

@@ -1,0 +1,38 @@
+{
+  "landingPage": {
+    "carousel": [
+      {
+        "_id": "5CKOQQmEABhvlVuP8pvcJU",
+        "caption": null,
+        "dimensions": "48h x 72w inches",
+        "mainImage": {
+          "alt": "Turtles In Bathtub",
+          "asset": {
+            "_id": "image-640379d2935c22eba96c8f66c2c20ba54a1999f6-7000x4726-jpg",
+            "metadata": {
+              "blurHash": "VDGSJnNaR8Rjsp~ptRt8Ins;H?Rjx[kCt7j;RPRjozt7",
+              "dimensions": {
+                "aspectRatio": 1.4811680067710538,
+                "height": 4726,
+                "width": 7000
+              },
+              "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAUGA//EACEQAAMAAgICAgMAAAAAAAAAAAECAwARBAUSQQYTITGx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAIDBP/EABkRAAIDAQAAAAAAAAAAAAAAAAABESExEv/aAAwDAQACEQMRAD8Acdbx41Z2fnp5XJHgf4Myr19qsiystHKFgNkfr1vIuUmjyE+mrqx8n2D+d416TsLcmVfudy8xtWDaOZ2ungXMFT0PPlLhMkjXS0IIY70feGTPxq9TwaEtvdm9YY6wsnR//9k="
+            },
+            "originalFilename": "2014_turtlesinbathtub_48hx72w_oilOnCanvas.jpg",
+            "path": "images/zflu9f6c/production/640379d2935c22eba96c8f66c2c20ba54a1999f6-7000x4726.jpg",
+            "size": 30138380,
+            "title": null,
+            "url": "https://cdn.sanity.io/images/zflu9f6c/production/640379d2935c22eba96c8f66c2c20ba54a1999f6-7000x4726.jpg"
+          },
+          "caption": null,
+          "crop": null,
+          "hotspot": null
+        },
+        "mainImageUrl": "https://cdn.sanity.io/images/zflu9f6c/production/640379d2935c22eba96c8f66c2c20ba54a1999f6-7000x4726.jpg",
+        "medium": "Oil On Canvas",
+        "title": "Turtles In Bathtub",
+        "year": 2014
+      }
+    ]
+  }
+}
