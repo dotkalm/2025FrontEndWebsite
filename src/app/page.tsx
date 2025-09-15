@@ -14,7 +14,7 @@ export default function Home() {
       component="main"
       sx={{
         paddingTop: {
-          xs: 8,
+          xs: 7,
         }
       }
       }

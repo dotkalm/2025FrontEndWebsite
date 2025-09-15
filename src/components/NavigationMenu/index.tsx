@@ -3,6 +3,7 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from '@mui/material/Toolbar';
 import Typography from "@mui/material/Typography";
+import Image from "next/image";
 
 const NavMenu: React.FC = () => {
     return (
@@ -10,20 +11,26 @@ const NavMenu: React.FC = () => {
             color="transparent"
             elevation={0}
             sx={{
-                backgroundColor: 'rgba(55, 95, 155, 0.1)',
+                backgroundColor: 'rgba(255, 195, 155, 1)',
                 transition: 'transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms',
-                borderBottom: '1px solid rgba(55, 95, 155, 0.2)',
+                borderBottom: '2px solid rgba(5, 5, 5, 1)',
             }}
         >
             <Toolbar
                 sx={{
                     display: 'flex',
                     justifyContent: 'flex-start',
+                    paddingTop: 0.5,
+                    paddingBottom: 0.5,
                 }}
             >
-                <Typography variant="h1" color="pink">
-                    Joel Holmberg
-                </Typography>
+                <Image
+                    priority
+                    src="/myName.svg"
+                    alt="joel holmberg"
+                    width={300}
+                    height={50}
+                />
             </Toolbar>
         </AppBar>
     );

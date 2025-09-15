@@ -155,7 +155,6 @@ export const carouselStyles: SxProps = {
     overflow: 'hidden',
     display: 'grid',
     alignItems: 'center',
-    transition: 'grid-template-columns 0.1s ease-in-out',
     gridTemplateColumns: {
         xs: '100vw',
         md: '50vw 50vw',
