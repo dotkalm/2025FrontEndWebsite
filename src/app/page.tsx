@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Box from "@mui/material/Box";
 import { getStaticData } from "@/utils/getStaticData";
 import { JSON_KEYS, type TLandingPage } from "@/types";
@@ -13,6 +12,12 @@ export default function Home() {
   return (
     <Box 
       component="main"
+      sx={{
+        paddingTop: {
+          xs: 8,
+        }
+      }
+      }
     >
       <HeroSlider carousel={carousel} />
     </Box>

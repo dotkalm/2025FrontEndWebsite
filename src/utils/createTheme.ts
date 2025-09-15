@@ -1,174 +1,120 @@
-import { createTheme, Theme } from '@mui/material/styles';
-import { TDesignTokens } from '@/types';
-import { breakpoints, mediaQueries, spacing } from '@/theme/responsiveLayout';
+import { createTheme, type Theme }  from '@mui/material/styles';
+import { breakpoints, mediaQueries } from '@/theme/responsiveLayout';
 
-export function createMuiTheme(designTokens: TDesignTokens): Theme {
+export function createMuiTheme(): Theme {
+    const circularFont = '"Circular Std", "Helvetica Neue", Arial, sans-serif';
+
     return createTheme({
-        palette: {
-            primary: {
-                main: designTokens.colors.black,
-            },
-            secondary: {
-                main: designTokens.colors.gray,
-            },
-            background: {
-                default: designTokens.colors.white,
-                paper: designTokens.colors.white,
-            },
-            text: {
-                primary: designTokens.colors.black,
-                secondary: designTokens.colors.gray,
-            },
-            error: {
-                main: designTokens.colors.red,
-            },
-            info: {
-                main: designTokens.colors.red,
-            },
-            // Add custom color tokens directly to palette for easy access
-            customColors: {
-                black: designTokens.colors.black,
-                gray: designTokens.colors.gray,
-                red: designTokens.colors.red,
-                white: designTokens.colors.white,
-            },
-        },
         typography: {
-            fontFamily: 'Helvetica Neue',
-
-            // Map MUI typography variants to your design tokens
+            fontFamily: circularFont,
+            fontWeightLight: 400,
+            fontWeightRegular: 400,
+            fontWeightMedium: 500,
+            fontWeightBold: 700,
+            fontWeightBlack: 900,
             h1: {
-                ...designTokens.typography.large.headline,
+                fontFamily: circularFont,
+                fontWeight: 900,
+                fontSize: '2.5rem',
+                lineHeight: 1.2,
                 [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.headline,
-                },
+                    fontSize: '2rem',
+                    lineHeight: 1.15
+                }
             },
             h2: {
-                ...designTokens.typography.large.headline,
+                fontFamily: circularFont,
+                fontWeight: 900,
+                fontSize: '2rem',
+                lineHeight: 1.2,
                 [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.headline,
-                },
+                    fontSize: '1.75rem',
+                    lineHeight: 1.15
+                }
             },
             h3: {
-                ...designTokens.typography.large.headline,
+                fontFamily: circularFont,
+                fontWeight: 700,
+                fontSize: '1.75rem',
+                lineHeight: 1.2,
                 [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.headline,
-                },
-            },
-            h4: {
-                ...designTokens.typography.large.headline,
-                [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.headline,
-                },
-            },
-            h5: {
-                ...designTokens.typography.large.headline,
-                [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.headline,
-                },
-            },
-            h6: {
-                ...designTokens.typography.large.headline,
-                [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.headline,
-                },
-            },
-            subtitle1: {
-                ...designTokens.typography.large.anchoredAnnouncement,
-                [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.anchoredAnnouncement,
-                },
-            },
-            subtitle2: {
-                ...designTokens.typography.large.captions,
-                [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.captions,
-                },
-            },
-            body1: {
-                ...designTokens.typography.large.body,
-                [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.body,
-                },
-            },
-            body2: {
-                ...designTokens.typography.large.body,
-                fontSize: '9pt', // Slightly smaller than body1
-                [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.body,
-                    fontSize: '9pt',
-                },
-            },
-            button: {
-                ...designTokens.typography.large.navigation,
-                textTransform: 'none', // Remove default uppercase
-                [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.navigation,
-                },
-            },
-            caption: {
-                ...designTokens.typography.large.captions,
-                [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.captions,
-                },
-            },
-            overline: {
-                ...designTokens.typography.large.anchoredAnnouncement,
-                textTransform: 'uppercase',
-                [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.anchoredAnnouncement,
-                },
+                    fontSize: '1.5rem',
+                    lineHeight: 1.15
+                }
             },
             h1Italic: {
-                ...designTokens.typography.large.headlineItalic,
+                fontFamily: circularFont,
+                fontWeight: 900,
+                fontStyle: 'italic',
+                fontSize: '2.5rem',
+                lineHeight: 1.2,
                 [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.headlineItalic,
-                },
+                    fontSize: '2rem',
+                    lineHeight: 1.15
+                }
             },
             h2Italic: {
-                ...designTokens.typography.large.headlineItalic,
+                fontFamily: circularFont,
+                fontWeight: 900,
+                fontStyle: 'italic',
+                fontSize: '2rem',
+                lineHeight: 1.2,
                 [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.headlineItalic,
-                },
+                    fontSize: '1.75rem',
+                    lineHeight: 1.15
+                }
             },
-            h3Italic: {
-                ...designTokens.typography.large.headlineItalic,
+            body1: {
+                fontFamily: circularFont,
+                fontWeight: 400,
+                fontSize: '1rem',
+                lineHeight: 1.5,
                 [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.headlineItalic,
-                },
+                    fontSize: '0.9375rem',
+                    lineHeight: 1.4
+                }
+            },
+            body2: {
+                fontFamily: circularFont,
+                fontWeight: 400,
+                fontSize: '0.875rem',
+                lineHeight: 1.43,
+                [mediaQueries.mobile]: {
+                    fontSize: '0.875rem',
+                    lineHeight: 1.35
+                }
             },
             body1Italic: {
-                ...designTokens.typography.large.bodyItalic,
+                fontFamily: circularFont,
+                fontWeight: 400,
+                fontStyle: 'italic',
+                fontSize: '1rem',
+                lineHeight: 1.5,
                 [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.bodyItalic,
-                },
+                    fontSize: '0.9375rem',
+                    lineHeight: 1.4
+                }
             },
             body2Italic: {
-                ...designTokens.typography.large.bodyItalic,
-                fontSize: '9pt',
+                fontFamily: circularFont,
+                fontWeight: 400,
+                fontStyle: 'italic',
+                fontSize: '0.875rem',
+                lineHeight: 1.43,
                 [mediaQueries.mobile]: {
-                    ...designTokens.typography.small.bodyItalic,
-                    fontSize: '9pt',
-                },
-            },
+                    fontSize: '0.875rem',
+                    lineHeight: 1.35
+                }
+            }
         },
-
-        // Custom breakpoints to match your existing responsive system
         breakpoints: {
             values: {
                 xs: 0,
                 sm: breakpoints.sm,
                 md: breakpoints.md,
                 lg: breakpoints.lg,
-                xl: 1440, // Add xl for very large screens
-            },
+                xl: 1440
+            }
         },
-
-        // Custom spacing that integrates with your layout system
-        spacing: (factor: number) => spacing.navBottom / 5 * factor, // Base unit derived from your spacing
-
-        // Custom component overrides for italic styles
-        // Add your custom tokens for direct access
-        customTokens: designTokens,
     });
 }

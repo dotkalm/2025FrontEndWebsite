@@ -2,7 +2,16 @@ import { type SxProps } from "@mui/material";
 export const artistDetailsStyles = {
     exhibitionSubTypeContent: {
         display: 'flex',
-        flexDirection: 'column',
+     position: 'relative',
+    overflow: 'hidden',
+    display: 'grid',
+    alignItems: 'center',
+    transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+    gridTemplateColumns: {
+        xs: '100vw',
+        md: '50vw 50vw',
+        lg: '33vw 33vw 33vw',
+    },xDirection: 'column',
         gap: 2,
     },
     sidebarItem: {
@@ -125,12 +134,11 @@ export const sharedLayoutStyles = {
 };
 
 export const carouselStyles: SxProps = {
-    display: 'flex',
     justifyContent: 'flex-start',
     mx: 0,
-    paddingTop: {
-        xs: 2,
-    },
+    willChange: 'transform, grid-template-columns',
+    transform: 'translateZ(0)',
+    transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
     marginBottom: {
         xs: 3,
         md: 8,
@@ -142,30 +150,33 @@ export const carouselStyles: SxProps = {
     },
     width: {
         xs: '100vw',
-        sm: '80vw',
-    },
-    marginLeft: {
-        xs: '-24.80px !important',
-        sm: '0 !important',
     },
     position: 'relative',
     overflow: 'hidden',
+    display: 'grid',
+    alignItems: 'center',
+    transition: 'grid-template-columns 0.1s ease-in-out',
+    gridTemplateColumns: {
+        xs: '100vw',
+        md: '50vw 50vw',
+        lg: '33vw 33vw 33vw',
+    },
     '& img': {
-        cursor: 'pointer',
         display: 'block',
         height: {
-            xs: undefined,
-            sm: '100%',
+            xs: '100%',
         },
         objectFit: 'contain',
-        objectPosition: 'top left',
+        objectPosition: 'center',
         width: {
-            xs: '100vw',
-            sm: '45vw',
-            md: '55vw',
-            lg: '65vw',
+            xs: '100%',
         },
-        maxHeight: '100vh',
+        maxHeight: {
+            xs: '100%',
+            sm: '100%',
+            md: '80%',
+            lg: '400px'
+        },
         backgroundPosition: 'inherit !important',
         backgroundSize: 'inherit !important',
     }

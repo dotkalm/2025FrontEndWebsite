@@ -5,6 +5,11 @@ import { TDesignTokens } from '@/types';
 
 declare module '@mui/material/styles' {
   interface TypographyVariants {
+    fontWeightBlack: number;
+  }
+
+  interface TypographyVariantsOptions {
+    fontWeightBlack?: number;
     h1Italic: React.CSSProperties;
     h2Italic: React.CSSProperties;
     h3Italic: React.CSSProperties;
