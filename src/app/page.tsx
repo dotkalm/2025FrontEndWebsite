@@ -8,7 +8,6 @@ export default function Home() {
     carousel, 
   } = getStaticData<TLandingPage>(JSON_KEYS.LANDING_PAGE) as TLandingPage;
 
-  console.log(carousel);
   return (
     <Box 
       component="main"
