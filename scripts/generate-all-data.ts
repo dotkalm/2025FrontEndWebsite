@@ -16,10 +16,7 @@ async function generateAllData(): Promise<void> {
     const data: TData = {
         [JSON_KEYS.LANDING_PAGE]: null,
     };
-
     data[JSON_KEYS.LANDING_PAGE] = await getSanityUsingGroq<TLandingPage>(LANDING_PAGE_QUERY);
-
-    console.log(data[JSON_KEYS.LANDING_PAGE]);
     const outputPath = path.join(process.cwd(), 'public', 'static-data.json');
     fs.writeFileSync(outputPath, JSON.stringify(data, null, 2));
 }
