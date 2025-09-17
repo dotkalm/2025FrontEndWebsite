@@ -1,0 +1,14 @@
+# Rust
+/target/
+Cargo.lock
+
+# WASM build output
+/pkg/
+
+# Node modules (can appear with wasm-pack bundler target or if you add package.json)
+/node_modules/
+package-lock.json
+yarn.lock
+
+# Debug files
+*.pdb

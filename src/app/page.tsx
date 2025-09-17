@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 import { getStaticData } from "@/utils/getStaticData";
 import { JSON_KEYS, type TLandingPage } from "@/types";
 import HeroSlider from "@/components/HeroSlider";
+import WasmLoader from "@/components/WasmLoader";
 
 export default function Home() {
   const {
@@ -19,6 +20,7 @@ export default function Home() {
       }
     >
       <HeroSlider carousel={carousel} />
+      <WasmLoader />
     </Box>
   )
 }

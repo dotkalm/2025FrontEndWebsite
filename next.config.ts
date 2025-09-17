@@ -16,6 +16,29 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['@mui/material', '@mui/icons-material'],
   },
+  // Add proper MIME types for WASM files
+  async headers() {
+    return [
+      {
+        source: '/:path*.wasm',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/wasm',
+          },
+        ],
+      },
+      {
+        source: '/hello_wasm.js',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/javascript',
+          },
+        ],
+      },
+    ];
+  },
   // for better tree shaking and hydration consistency
   modularizeImports: {
     '@mui/material': {
@@ -35,6 +58,13 @@ const nextConfig: NextConfig = {
       // Label format for better debugging
       labelFormat: '[local]',
     },
+  },
+  webpack: (config) => {
+    config.experiments = {
+      ...config.experiments,
+      asyncWebAssembly: true,
+    };
+    return config;
   },
 };
 export default nextConfig;

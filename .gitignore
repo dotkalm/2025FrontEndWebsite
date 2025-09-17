@@ -41,3 +41,10 @@ yarn-error.log*
 next-env.d.ts
 
 /public/static-data.json
+
+
+# WASM files copied to public (since these are generated)
+/public/hello_wasm.js
+/public/hello_wasm_bg.wasm
+/public/*.wasm
+/public/*_bg.wasm
