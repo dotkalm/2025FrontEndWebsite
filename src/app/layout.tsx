@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import LayoutWrapper from "@/theme/LayoutWrapper";
 import Box from "@mui/material/Box";
 
@@ -17,6 +18,7 @@ export default function RootLayout({
         <Box component="body">
           <LayoutWrapper>
             {children}
+            <Analytics />
           </LayoutWrapper>
         </Box>
     </html>
