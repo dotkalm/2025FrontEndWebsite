@@ -66,7 +66,7 @@ const ImageContainer: FC<SingleImageProps> = ({
                     // Single click
                     lastPointerUpRef.current = now;
                     if(id === imageProps._id) {
-                        router.push(pathname, { scroll: false });
+                        router.push(pathname + '?' + createQueryString('_id', imageProps._id) + '&fullscreen=true', { scroll: false });
                     } else {
                         router.push(pathname + '?' + createQueryString('_id', imageProps._id), { scroll: false });
                     }

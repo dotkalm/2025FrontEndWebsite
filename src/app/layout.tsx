@@ -20,6 +20,7 @@ export default function RootLayout({
         sx={{
           margin: 0,
           padding: 0,
+          height: '101%',
           backgroundColor: 'darkblue',
           overscrollBehaviorY: 'none',
           overscrollBehavior: 'none',

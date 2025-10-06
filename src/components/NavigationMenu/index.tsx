@@ -1,10 +1,14 @@
 'use client';
 import React from "react";
+import { useSearchParams, usePathname } from "next/navigation";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from '@mui/material/Toolbar';
 import Image from "next/image";
 
 const NavMenu: React.FC = () => {
+    const searchParams = useSearchParams()
+    const fullscreen = searchParams.get('fullscreen');
+    console.log('searchParams in NavMenu:', searchParams.toString());
     return (
         <AppBar
             color="transparent"
@@ -21,6 +25,19 @@ const NavMenu: React.FC = () => {
                     justifyContent: 'flex-start',
                     paddingTop: 0.5,
                     paddingBottom: 0.5,
+                    '& img': {
+                        transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                        height: {
+                            xs: fullscreen ? 0 : 12.5,
+                            sm: 25,
+                            md: 50,
+                        },
+                        width: {
+                            xs: fullscreen ? 0 : 75,
+                            sm: 150,
+                            md: 300,
+                        },
+                    }
                 }}
             >
                 <Image

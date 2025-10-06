@@ -43,9 +43,12 @@ const SingleImage: FC<TArtwork> = artwork => {
                     right: 0,
                     top: 0,
                     zIndex: 10000,
+                    height:{
+                        xs: '3rem',
+                        sm: '3.5rem',
+                    },
                     lineHeight: {
                         xs: .9,
-                        md: 1,
                     },
                     display: 'flex',
                     fleDirection: 'row',
@@ -56,6 +59,7 @@ const SingleImage: FC<TArtwork> = artwork => {
                     },
                     alignItems: 'center',
                     justifyContent: 'space-between',
+                    transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
             >
                 <Typography
@@ -64,7 +68,6 @@ const SingleImage: FC<TArtwork> = artwork => {
                     sx={{
                         lineHeight: {
                             xs: .9,
-                            md: 1,
                         },
                     }}
                 >
