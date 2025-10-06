@@ -15,12 +15,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <Box component="body">
-          <LayoutWrapper>
-            {children}
-            <Analytics />
-          </LayoutWrapper>
-        </Box>
+      <Box
+        component="body"
+        sx={{
+          margin: 0,
+          padding: 0,
+          boxSizing: 'unset',
+          backgroundColor: 'darkblue',
+        }}>
+        <LayoutWrapper>
+          {children}
+          <Analytics />
+        </LayoutWrapper>
+      </Box>
     </html>
   );
 }

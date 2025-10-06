@@ -1,5 +1,6 @@
 import { type SxProps } from "@mui/material";
 export const carouselStyles: SxProps = {
+    paddingTop: 2,
     backgroundColor: 'rgba(45, 45, 145, 1)',
     justifyContent: 'flex-start',
     mx: 0,
@@ -29,6 +30,7 @@ export const carouselStyles: SxProps = {
     },
     '& > *': {
         position: 'relative',
+        padding: 1,
     },
     '& img': {
         display: 'block',

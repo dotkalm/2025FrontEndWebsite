@@ -11,14 +11,14 @@ const SingleImage: FC<SingleImageProps> = (asset) => {
     const { metadata: { lqip } } = asset;
     return (
         <NextImage
-            src={imageUrl}
-            height={1200}
-            width={1200}
             alt={asset.altDescription || ''}
-            placeholder={lqip ? "blur" : "empty"}
             blurDataURL={lqip}
-            sizes="(max-width: 480px) 100vw, (max-width: 768px) 90vw, (max-width: 1200px) 80vw, 1200px"
+            height={1200}
+            placeholder={lqip ? "blur" : "empty"}
             quality={75}
+            sizes="(max-width: 480px) 100vw, (max-width: 768px) 90vw, (max-width: 1200px) 80vw, 1200px"
+            src={imageUrl}
+            width={1200}
         />
     );
 };

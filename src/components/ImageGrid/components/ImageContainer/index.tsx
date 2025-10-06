@@ -36,7 +36,6 @@ const ImageContainer: FC<SingleImageProps> = ({
 
 
     function handleClick() {
-        console.log('click');
         if(id === imageProps._id) {
             router.push(pathname, { scroll: false });
         }else{
@@ -46,14 +45,15 @@ const ImageContainer: FC<SingleImageProps> = ({
 
     function handleDoubleClick() {
         console.log('double click');
+        router.push(pathname + '?' + createQueryString('_id', imageProps._id) + '&fullscreen=true', { scroll: false });
     }
 
-    const handleTouchStart = (e: TouchEvent) => {
+    const handleTouchStart = (e: PointerEvent) => {
         const touch = e.touches[0];
         touchStartRef.current = { x: touch.clientX, y: touch.clientY };
     };
 
-    const handleTouchEnd = (e: TouchEvent) => {
+    const handleTouchEnd = (e: PointerEvent) => {
         const touch = e.changedTouches[0];
         const start = touchStartRef.current;
 
@@ -86,7 +86,7 @@ const ImageContainer: FC<SingleImageProps> = ({
 
     const handlers = isMobile
         ? {
-            onTouchStart: handleTouchStart,
+            onPointerDown: handleTouchStart,
             onTouchEnd: handleTouchEnd,
         }
         : {
