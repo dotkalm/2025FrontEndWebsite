@@ -19,6 +19,7 @@ const SingleImage: FC<SingleImageProps> = (asset) => {
             blurDataURL={lqip}
             sizes="(max-width: 480px) 100vw, (max-width: 768px) 90vw, (max-width: 1200px) 80vw, 1200px"
             quality={75}
+            style={{ cursor: 'pointer' }}
         />
     );
 };

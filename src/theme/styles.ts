@@ -1,5 +1,6 @@
 import { type SxProps } from "@mui/material";
 export const carouselStyles: SxProps = {
+    backgroundColor: 'rgba(45, 45, 145, 1)',
     justifyContent: 'flex-start',
     mx: 0,
     willChange: 'transform, grid-template-columns',
@@ -26,6 +27,11 @@ export const carouselStyles: SxProps = {
         md: '50vw 50vw',
         lg: '33vw 33vw 33vw',
     },
+    '& > *': {
+        position: 'relative',
+        cursor: 'pointer !important',
+        pointerEvents: 'auto !important', // Add this line
+    },
     '& img': {
         display: 'block',
         height: {
@@ -44,5 +50,7 @@ export const carouselStyles: SxProps = {
         },
         backgroundPosition: 'inherit !important',
         backgroundSize: 'inherit !important',
+        cursor: 'pointer !important',
+        pointerEvents: 'auto !important', // Add this line
     }
 };

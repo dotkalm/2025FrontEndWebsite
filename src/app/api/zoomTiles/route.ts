@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
 }
 
 
-function isValidZoomTileRequest(body: any): body is TZoomTileRequestBody {
+function isValidZoomTileRequest(body: TZoomTileRequestBody): body is TZoomTileRequestBody {
   return (
     typeof body === 'object' &&
     body !== null &&

@@ -12,6 +12,7 @@ export default function Home() {
     <Box 
       component="main"
       sx={{
+        cursor: 'pointer',
         paddingTop: {
           xs: 7,
         }
