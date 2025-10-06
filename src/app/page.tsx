@@ -1,4 +1,5 @@
 import Box from "@mui/material/Box";
+import { Suspense } from "react";
 import { getStaticData } from "@/utils/getStaticData";
 import { JSON_KEYS, type TLandingPage } from "@/types";
 import HeroSlider from "@/components/HeroSlider";
@@ -19,7 +20,9 @@ export default function Home() {
       }
       }
     >
-      <HeroSlider carousel={carousel} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <HeroSlider carousel={carousel} />
+      </Suspense>
     </Box>
   )
 }

@@ -2,7 +2,6 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from '@mui/material/Toolbar';
-import Typography from "@mui/material/Typography";
 import Image from "next/image";
 
 const NavMenu: React.FC = () => {
@@ -22,6 +21,7 @@ const NavMenu: React.FC = () => {
                     justifyContent: 'flex-start',
                     paddingTop: 0.5,
                     paddingBottom: 0.5,
+                    cursor: 'pointer',
                 }}
             >
                 <Image
