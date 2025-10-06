@@ -21,17 +21,11 @@ const RolloverCaptions: FC<TRolloverCaptionsProps> = imageInfo => {
             sx={{
                 alignItems: 'flex-end',
                 backgroundColor: 'rgba(5, 5, 225, 0.8)',
-                bottom: 0,
                 color: 'white',
                 display: 'flex',
                 height: '100%',
                 justifyContent: 'flex-start',
-                left: 0,
-                paddingBottom: 2,
-                paddingLeft: 5,
                 position: 'absolute',
-                right: 0,
-                top: 0,
                 transition: 'opacity 0.1s ease-in-out, visibility 0.1s ease-in-out',
                 visibility: isActive ? 'visible' : 'hidden',
                 width: '100%',
@@ -43,7 +37,7 @@ const RolloverCaptions: FC<TRolloverCaptionsProps> = imageInfo => {
                 gutterBottom
                 component="div"
                 sx={{
-                    maxWidth: '100%',
+                    marginLeft: 2,
                     lineHeight: 1.2,
                 }} >
                 {imageInfo.altDescription} <br />

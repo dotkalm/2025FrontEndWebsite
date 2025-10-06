@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { type FC, Fragment } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -26,33 +26,7 @@ const SingleImage: FC<TArtwork> = artwork => {
     }
 
     return (
-        <Box
-            sx={{
-                width: '100%',
-                height: '90vh',
-                paddingTop: 3,
-                backgroundColor: 'rgba(0, 0, 0, 1)',
-                '& img': {
-                    display: 'block',
-                    height: {
-                        xs: '95%',
-                    },
-                    paddingBottom: 1,
-                    objectFit: 'contain',
-                    objectPosition: 'center',
-                    width: {
-                        xs: '100%',
-                    },
-                    maxHeight: {
-                        xs: '100%',
-                        sm: '100%',
-                        md: '95vh',
-                    },
-                    backgroundPosition: 'inherit !important',
-                    backgroundSize: 'inherit !important',
-                }
-            }}
-        >
+        <Fragment>
             <Box
                 sx={{
                     paddingLeft: {
@@ -65,7 +39,7 @@ const SingleImage: FC<TArtwork> = artwork => {
                     paddingTop: {
                         xs: 1,
                     },
-                    position: 'absolute',
+                    position: 'fixed',
                     right: 0,
                     top: 0,
                     zIndex: 10000,
@@ -114,17 +88,43 @@ const SingleImage: FC<TArtwork> = artwork => {
                     <CloseIcon />
                 </Button>
             </Box>
-            <NextImage
-                alt={altDescription || ''}
-                blurDataURL={lqip}
-                height={1200}
-                placeholder={lqip ? "blur" : "empty"}
-                quality={75}
-                sizes="(max-width: 480px) 100vw, (max-width: 768px) 90vw, (max-width: 1200px) 80vw, 1200px"
-                src={imageUrl}
-                width={1200}
-            />
-        </Box>
+            <Box
+                sx={{
+                    width: '100%',
+                    height: '95%',
+                    margin: 0,
+                    position: 'fixed',
+                    backgroundColor: 'rgba(0, 0, 0, 1)',
+                    '& img': {
+                        height: {
+                            xs: '98%',
+                        },
+                        paddingTop: 2,
+                        objectFit: 'contain',
+                        objectPosition: 'center',
+                        width: {
+                            xs: '100%',
+                        },
+                        maxHeight: {
+                            xs: '95vh',
+                        },
+                        backgroundPosition: 'inherit !important',
+                        backgroundSize: 'inherit !important',
+                    }
+                }}
+            >
+                <NextImage
+                    alt={altDescription || ''}
+                    blurDataURL={lqip}
+                    height={1200}
+                    placeholder={lqip ? "blur" : "empty"}
+                    quality={75}
+                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 90vw, (max-width: 1200px) 80vw, 1200px"
+                    src={imageUrl}
+                    width={1200}
+                />
+            </Box>
+        </Fragment>
     );
 };
 

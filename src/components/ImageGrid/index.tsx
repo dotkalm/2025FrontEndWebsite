@@ -16,7 +16,6 @@ const ImageGrid: FC<ImageGridProps> = ({ carousel }) => {
     const id = searchParams.get('_id');
     const fullscreen = searchParams.get('fullscreen');
     const artwork = fullscreen ? carousel.find(item => item.mainImage?.asset._id === id) : null;
-    console.log(artwork, fullscreen, carousel)
     return artwork ? <SingleImage {...artwork} /> : (
         <Box sx={carouselStyles}>
             {!fullscreen && carousel.map((artwork) => artwork.mainImage && (

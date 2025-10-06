@@ -20,8 +20,10 @@ export default function RootLayout({
         sx={{
           margin: 0,
           padding: 0,
-          boxSizing: 'unset',
           backgroundColor: 'darkblue',
+          overscrollBehaviorY: 'none',
+          overscrollBehavior: 'none',
+          overflowY: 'auto',
         }}>
         <LayoutWrapper>
           {children}

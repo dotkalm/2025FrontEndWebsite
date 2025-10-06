@@ -1,7 +1,5 @@
 'use client';
-import React, { type FC, useRef, type TouchEvent, useCallback } from 'react';
-import { useMediaQuery } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import React, { type FC, useRef, type PointerEvent, useCallback } from 'react';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import Box from '@mui/material/Box';
 import { type TSanityImageAsset } from '@/types';
@@ -26,83 +24,58 @@ const ImageContainer: FC<SingleImageProps> = ({
     ...imageProps 
 }) => {
     const searchParams = useSearchParams()
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const lastTouchRef = useRef<number>(0);
-    const touchStartRef = useRef<{ x: number; y: number } | null>(null);
     const pathname = usePathname()
     const router = useRouter()
     const id = searchParams.get('_id');
-
-
-    function handleClick() {
-        if(id === imageProps._id) {
-            router.push(pathname, { scroll: false });
-        }else{
-            router.push(pathname + '?' + createQueryString('_id', imageProps._id), { scroll: false });
-        }
-    }
-
-    function handleDoubleClick() {
-        console.log('double click');
-        router.push(pathname + '?' + createQueryString('_id', imageProps._id) + '&fullscreen=true', { scroll: false });
-    }
-
-    const handleTouchStart = (e: PointerEvent) => {
-        const touch = e.touches[0];
-        touchStartRef.current = { x: touch.clientX, y: touch.clientY };
-    };
-
-    const handleTouchEnd = (e: PointerEvent) => {
-        const touch = e.changedTouches[0];
-        const start = touchStartRef.current;
-
-        // Check if it's a tap (not a swipe)
-        if (start) {
-            const deltaX = Math.abs(touch.clientX - start.x);
-            const deltaY = Math.abs(touch.clientY - start.y);
-
-            if (deltaX < 10 && deltaY < 10) {
-                // It's a tap, check for double tap
-                const now = Date.now();
-                const timeSinceLastTap = now - lastTouchRef.current;
-
-                if (timeSinceLastTap < 300 && timeSinceLastTap > 0) {
-                    // Double tap detected
-                    e.preventDefault(); // Prevent default zoom
-                    lastTouchRef.current = 0;
-                    console.log('double tap');
-                } else {
-                    console.log('single tap');
-                    lastTouchRef.current = now;
-                    createQueryString('showCaptions', 'true');
-                    createQueryString('_id', imageProps._id);
-                }
-            }
-        }
-
-        touchStartRef.current = null;
-    };
-
-    const handlers = isMobile
-        ? {
-            onPointerDown: handleTouchStart,
-            onTouchEnd: handleTouchEnd,
-        }
-        : {
-            onClick: handleClick,
-            onDoubleClick: handleDoubleClick,
-        };
+    
+    const lastPointerUpRef = useRef<number>(0);
+    const pointerDownRef = useRef<{ x: number; y: number } | null>(null);
 
     const createQueryString = useCallback(
         (name: string, value: string) => {
             const params = new URLSearchParams(searchParams.toString())
             params.set(name, value)
-
             return params.toString()
         },
         [searchParams]
     );
+
+    const handlePointerDown = (e: PointerEvent) => {
+        pointerDownRef.current = { x: e.clientX, y: e.clientY };
+    };
+
+    const handlePointerUp = (e: PointerEvent) => {
+        const start = pointerDownRef.current;
+
+        // Check if it's a click (not a drag)
+        if (start) {
+            const deltaX = Math.abs(e.clientX - start.x);
+            const deltaY = Math.abs(e.clientY - start.y);
+
+            if (deltaX < 10 && deltaY < 10) {
+                // It's a click, check for double click
+                const now = Date.now();
+                const timeSinceLastClick = now - lastPointerUpRef.current;
+
+                if (timeSinceLastClick < 300 && timeSinceLastClick > 0) {
+                    // Double click detected
+                    e.preventDefault();
+                    lastPointerUpRef.current = 0;
+                    router.push(pathname + '?' + createQueryString('_id', imageProps._id) + '&fullscreen=true', { scroll: false });
+                } else {
+                    // Single click
+                    lastPointerUpRef.current = now;
+                    if(id === imageProps._id) {
+                        router.push(pathname, { scroll: false });
+                    } else {
+                        router.push(pathname + '?' + createQueryString('_id', imageProps._id), { scroll: false });
+                    }
+                }
+            }
+        }
+
+        pointerDownRef.current = null;
+    };
 
     return (
         <Box 
@@ -113,7 +86,8 @@ const ImageContainer: FC<SingleImageProps> = ({
                     cursor: 'pointer !important',
                 },
             }}
-            {...handlers}
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}
         >
             <RolloverCaptions
                 altDescription={altDescription}

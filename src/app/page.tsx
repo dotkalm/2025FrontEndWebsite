@@ -13,6 +13,7 @@ export default function Home() {
     <Box
       component="main"
       sx={{
+        width: '100%',
         paddingTop: {
           xs: 7,
         },
