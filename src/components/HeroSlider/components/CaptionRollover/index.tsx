@@ -35,7 +35,6 @@ const RolloverCaptions: FC<TRolloverCaptionsProps> = imageInfo => {
                 transition: 'opacity 0.1s ease-in-out, visibility 0.1s ease-in-out',
                 visibility: isActive ? 'visible' : 'hidden',
                 width: '100%',
-                cursor: 'pointer',
                 pointerEvents: 'none',
             }}
         >

@@ -21,7 +21,6 @@ const NavMenu: React.FC = () => {
                     justifyContent: 'flex-start',
                     paddingTop: 0.5,
                     paddingBottom: 0.5,
-                    cursor: 'pointer',
                 }}
             >
                 <Image

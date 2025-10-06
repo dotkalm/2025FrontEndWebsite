@@ -29,8 +29,6 @@ export const carouselStyles: SxProps = {
     },
     '& > *': {
         position: 'relative',
-        cursor: 'pointer !important',
-        pointerEvents: 'auto !important', // Add this line
     },
     '& img': {
         display: 'block',
@@ -50,7 +48,5 @@ export const carouselStyles: SxProps = {
         },
         backgroundPosition: 'inherit !important',
         backgroundSize: 'inherit !important',
-        cursor: 'pointer !important',
-        pointerEvents: 'auto !important', // Add this line
     }
 };
