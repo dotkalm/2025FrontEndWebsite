@@ -1,4 +1,5 @@
 'use client';
+import { Suspense } from 'react';
 import NavMenu from '@/components/NavigationMenu';
 import MainLayout from "@components/MainLayout";
 import ThemeDataProvider from "./ThemeDataProvider";
@@ -13,7 +14,9 @@ export default function LayoutWrapper({
   return (
     <ThemeDataProvider>
       <MainLayout>
-        <NavMenu />
+        <Suspense fallback={<div></div>}>
+          <NavMenu />
+        </Suspense>
         {children}
       </MainLayout>
     </ThemeDataProvider>
