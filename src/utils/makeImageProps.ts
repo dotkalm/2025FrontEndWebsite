@@ -22,7 +22,7 @@ export const makeResponsiveContain: TMakeResponsiveContain = (
       .width(width)
       .quality(blurred ? 20 : 75)
       .fit('max');
-    
+    console.log(baseBuilder) 
     const key = `w${width}`
     urls[key] = blurred ? baseBuilder.blur(50).url() : baseBuilder.url()
   })

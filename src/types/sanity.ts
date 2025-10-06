@@ -12,6 +12,7 @@ export interface TSanityImageAsset {
   _type: 'sanity.imageAsset';
   _id: string;
   url: string;
+  mimeType: string;
   metadata: {
     dimensions: {
       width: number;
