@@ -21,13 +21,14 @@ export async function sanityFetch<T = unknown, P = Record<string, unknown>>(
     if (params) {
         Object.entries(params).forEach(([key, value]) => {
             if (value !== undefined && value !== null) {
-                url.searchParams.set(`$${key}`, String(value))
+                url.searchParams.set(`$${key}`, String(`"${value}"`))
             }
         })
     }
     try {
         const response = await fetch(url.toString())
 
+        console.log(response);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`)
         }

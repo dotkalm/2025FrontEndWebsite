@@ -1,9 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { validateSanityAsset } from '@/utils/validateSanityAsset';
+import { TSanityImage, TSanityImageAsset } from '@/types';
+import sharp from 'sharp';
+import fs from 'fs';
+import path from 'path';
+import os from 'os';
 
 interface TZoomTileRequestBody {
     uuid: string;
-    url: string;
 }
 
 export async function POST(request: NextRequest) {
@@ -16,18 +20,54 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-    const { uuid, url } = body;
-    const validation = await validateSanityAsset(uuid);
-    if (!validation.valid) {
+    const { uuid } = body;
+    const asset = await validateSanityAsset(uuid);
+    if ('valid' in asset && !asset.valid) {
       return NextResponse.json(
-        { error: validation.error || 'Invalid asset' },
+        { error: asset.error || 'Invalid asset' },
         { status: 400 }
       );
     }
-     
-    // Log it to verify what you're receiving
-    console.log('Received body:', { uuid, url });
-    
+    if(!('url' in asset)) {
+      return NextResponse.json(
+        { error: 'Asset does not contain a URL' },
+        { status: 400 }
+      );
+    }
+    const { assetId } = asset;
+
+    console.log('Validated asset:', assetId);
+    // Download the image from asset.url
+    const response = await fetch(asset.url);
+    if (!response.ok) {
+      return NextResponse.json(
+        { error: 'Failed to fetch asset image' },
+        { status: 500 }
+      );
+    }
+    const arrayBuffer = await response.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+
+    // Prepare temp directory for tiles
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), assetId));
+    const dziOutputDir = path.join(tempDir, 'tiles');
+
+    // Ensure output directory exists
+    fs.mkdirSync(dziOutputDir, { recursive: true });
+
+    // Use sharp to generate DZI tiles
+    await sharp(buffer)
+      .tile({
+        size: 256,
+        layout: 'dz',
+        overlap: 0,
+        container: 'fs',
+        basename: 'image'
+      })
+      .toFile(path.join(dziOutputDir, 'image.dzi'));
+
+    // Optionally, you could return the path or serve the tiles
+    console.log('DZI tiles generated at:', dziOutputDir);
     // Return just a status code
     return NextResponse.json(
       { message: 'Request received successfully' },
@@ -49,9 +89,7 @@ function isValidZoomTileRequest(body: TZoomTileRequestBody): body is TZoomTileRe
     typeof body === 'object' &&
     body !== null &&
     typeof body.uuid === 'string' &&
-    typeof body.url === 'string' &&
-    body.uuid.length > 0 &&
-    body.url.length > 0
+    body.uuid.length > 0
   );
 };
 
