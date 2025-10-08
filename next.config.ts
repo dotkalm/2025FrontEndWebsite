@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'storage.googleapis.com',
+        pathname: '/dzitiles2025/**',
+      },
     ],
     formats: ['image/webp', 'image/avif'],
   },
