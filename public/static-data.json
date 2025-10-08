@@ -9,6 +9,7 @@
           "alt": "Turtles In Bathtub",
           "asset": {
             "_id": "image-640379d2935c22eba96c8f66c2c20ba54a1999f6-7000x4726-jpg",
+            "assetId": "640379d2935c22eba96c8f66c2c20ba54a1999f6",
             "metadata": {
               "blurHash": "VDGSJnNaR8Rjsp~ptRt8Ins;H?Rjx[kCt7j;RPRjozt7",
               "dimensions": {
@@ -40,6 +41,7 @@
           "alt": "How Many Ancient Things",
           "asset": {
             "_id": "image-4a923d4ca752e440c8a8cf89258aa410f0655d6a-5016x7113-jpg",
+            "assetId": "4a923d4ca752e440c8a8cf89258aa410f0655d6a",
             "metadata": {
               "blurHash": "dHOgHDg3?w-p~qt7IoRPNxaejEWVIoRj%Lx]-=s:D%Wq",
               "dimensions": {
@@ -71,6 +73,7 @@
           "alt": "Capabilities",
           "asset": {
             "_id": "image-9a6d2f8267d208e17a9415a3f11d862ba4e64411-1961x1449-jpg",
+            "assetId": "9a6d2f8267d208e17a9415a3f11d862ba4e64411",
             "metadata": {
               "blurHash": "V#J[9jbHozj[j[~qj[bHj[ayaxoLayj[ayIVaye.ayj[",
               "dimensions": {
@@ -102,6 +105,7 @@
           "alt": "We Can't Know",
           "asset": {
             "_id": "image-b39ba450379e7fdbc09c5247d7fbeb23632c84e9-1826x1375-jpg",
+            "assetId": "b39ba450379e7fdbc09c5247d7fbeb23632c84e9",
             "metadata": {
               "blurHash": "VJ9Q,Qt6X8kCn$%%t7ofofaxOFfks:j[bbw]WBWUjta#",
               "dimensions": {
@@ -133,6 +137,7 @@
           "alt": "Trash Has Its Own Day",
           "asset": {
             "_id": "image-87658f29c594e61a8e34424dd92dc55b209ec4d8-1755x1206-jpg",
+            "assetId": "87658f29c594e61a8e34424dd92dc55b209ec4d8",
             "metadata": {
               "blurHash": "VIHBiDtRRiw|tQ0|R%bHRjkC{{r=soRja#GtjuoLofo1",
               "dimensions": {
@@ -164,6 +169,7 @@
           "alt": "Ribbon Cable With Osmosis Template",
           "asset": {
             "_id": "image-c9473a9daf4825b85c07b248a15eea2716ae441d-7050x5256-jpg",
+            "assetId": "c9473a9daf4825b85c07b248a15eea2716ae441d",
             "metadata": {
               "blurHash": "VPGu|0og?boe_2DiWBj[j[of~qjYRjflRkt7j]ofWBof",
               "dimensions": {
@@ -195,6 +201,7 @@
           "alt": "Nothing Says American Artist Like Inches",
           "asset": {
             "_id": "image-64894a7496a57635deae1553e73e0574fdffa04e-4914x7032-jpg",
+            "assetId": "64894a7496a57635deae1553e73e0574fdffa04e",
             "metadata": {
               "blurHash": "dTJko[k9~pohxvWVayoLt6ahIot4tRoMn$S1-;s:V?Rj",
               "dimensions": {
@@ -226,6 +233,7 @@
           "alt": "Each Baby's First Words",
           "asset": {
             "_id": "image-c0a1144e29f72259702adedb63241f2156910f12-1605x1206-jpg",
+            "assetId": "c0a1144e29f72259702adedb63241f2156910f12",
             "metadata": {
               "blurHash": "VDGIo-?G?axu.7.7I;%MbIt6-TxFMybGIU_MbIDkaeM{",
               "dimensions": {
@@ -257,6 +265,7 @@
           "alt": "Visit",
           "asset": {
             "_id": "image-5386ac573c22713733584ca877446d5c93b525bd-1500x1274-jpg",
+            "assetId": "5386ac573c22713733584ca877446d5c93b525bd",
             "metadata": {
               "blurHash": "eBDvf%.9_1$y.7?d-=n$WXR+--niRlR,xaR.x]RPt6of~p%2WBX8jb",
               "dimensions": {
@@ -288,6 +297,7 @@
           "alt": "Gift Of Fear",
           "asset": {
             "_id": "image-2e101e947c692509750af79f8b1e223265742829-6982x4971-jpg",
+            "assetId": "2e101e947c692509750af79f8b1e223265742829",
             "metadata": {
               "blurHash": "VFQ0U8-o~qD%.8%2V@ofkBbbyDI:M{-;Md.9X8Rjs:aK",
               "dimensions": {

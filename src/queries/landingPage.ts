@@ -19,6 +19,7 @@ export const LANDING_PAGE_QUERY = `
                     title,
                     path,
                     size,
+                    assetId,
                     metadata{
                         blurHash,
                         lqip,

@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
-import { useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import NextImage from 'next/image';
 import { type TSanityImageAsset } from '@/types';
@@ -12,7 +11,6 @@ import { type TArtwork } from "@/types";
 
 const SingleImage: FC<TArtwork> = artwork => {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const altDescription = artwork.mainImage?.alt || '';
     const asset = artwork.mainImage?.asset as TSanityImageAsset;
     const imageUrl = makeResponsiveContain(asset, false, [1200]).w1200;
@@ -24,6 +22,8 @@ const SingleImage: FC<TArtwork> = artwork => {
         params.delete('_id');
         window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
     }
+    console.log(artwork)
+    const { assetId } = asset;
 
     return (
         <Fragment>

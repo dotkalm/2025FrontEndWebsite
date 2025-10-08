@@ -8,31 +8,9 @@ import os from 'os';
 
 interface TZoomTileRequestBody {
     uuid: string;
-}
-
-/*
-const storage = new Storage({
-  projectId: process.env.GCS_PROJECT_ID,
-  credentials: {
-    client_email: process.env.GCS_CLIENT_EMAIL,
-    private_key: process.env.GCS_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-  },
-});
-*/
-
-// Initialize Google Cloud Storage
-console.log('=== DEBUGGING GCS CREDENTIALS ===');
-console.log('Project ID:', process.env.GCS_PROJECT_ID);
-console.log('Client Email:', process.env.GCS_CLIENT_EMAIL);
-console.log('Private Key length:', process.env.GCS_PRIVATE_KEY?.length);
-console.log('Private Key first 50 chars:', process.env.GCS_PRIVATE_KEY?.substring(0, 50));
-console.log('Private Key has \\n:', process.env.GCS_PRIVATE_KEY?.includes('\\n'));
-console.log('Private Key has actual newline:', process.env.GCS_PRIVATE_KEY?.includes('\n'));
+};
 
 const privateKey = process.env.GCS_PRIVATE_KEY?.replace(/\\n/g, '\n');
-console.log('After replace - first 50 chars:', privateKey?.substring(0, 50));
-console.log('After replace - has actual newline:', privateKey?.includes('\n'));
-console.log('=== END DEBUG ===');
 
 const storage = new Storage({
   projectId: process.env.GCS_PROJECT_ID,

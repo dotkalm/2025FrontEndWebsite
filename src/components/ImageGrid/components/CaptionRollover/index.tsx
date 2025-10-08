@@ -12,7 +12,6 @@ interface TRolloverCaptionsProps {
     year?: number;
 }
 const RolloverCaptions: FC<TRolloverCaptionsProps> = imageInfo => {
-    console.log('imageInfo in RolloverCaptions:', imageInfo);
     const searchParams = useSearchParams()
     const id = searchParams.get('_id');
     const isActive = id === imageInfo._id;
