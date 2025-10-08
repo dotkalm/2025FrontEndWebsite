@@ -1,4 +1,4 @@
-import React, { type FC, Fragment } from 'react';
+import React, { type FC, Fragment, useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -8,6 +8,7 @@ import NextImage from 'next/image';
 import { type TSanityImageAsset } from '@/types';
 import { makeResponsiveContain } from '@/utils/makeImageProps';
 import { type TArtwork } from "@/types";
+import DeepZoom from '@/components/DeepZoom';
 
 const SingleImage: FC<TArtwork> = artwork => {
     const theme = useTheme();
@@ -15,6 +16,8 @@ const SingleImage: FC<TArtwork> = artwork => {
     const asset = artwork.mainImage?.asset as TSanityImageAsset;
     const imageUrl = makeResponsiveContain(asset, false, [1200]).w1200;
     const { metadata: { lqip } } = asset;
+    const { assetId } = asset;
+    const [useFallback, setUseFallback] = useState(false);
 
     function handleClose() {
         const params = new URLSearchParams(window.location.search);
@@ -22,8 +25,12 @@ const SingleImage: FC<TArtwork> = artwork => {
         params.delete('_id');
         window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
     }
-    console.log(artwork)
-    const { assetId } = asset;
+
+    function handleDziNotFound() {
+        setUseFallback(true);
+    }
+
+    console.log(artwork);
 
     return (
         <Fragment>
@@ -116,16 +123,21 @@ const SingleImage: FC<TArtwork> = artwork => {
                     }
                 }}
             >
-                <NextImage
-                    alt={altDescription || ''}
-                    blurDataURL={lqip}
-                    height={1200}
-                    placeholder={lqip ? "blur" : "empty"}
-                    quality={75}
-                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 90vw, (max-width: 1200px) 80vw, 1200px"
-                    src={imageUrl}
-                    width={1200}
-                />
+                {!useFallback && (
+                    <DeepZoom assetId={assetId} onDziNotFound={handleDziNotFound} />
+                )}
+                {useFallback && (
+                    <NextImage
+                        alt={altDescription || ''}
+                        blurDataURL={lqip}
+                        height={1200}
+                        placeholder={lqip ? "blur" : "empty"}
+                        quality={75}
+                        sizes="(max-width: 480px) 100vw, (max-width: 768px) 90vw, (max-width: 1200px) 80vw, 1200px"
+                        src={imageUrl}
+                        width={1200}
+                    />
+                )}
             </Box>
         </Fragment>
     );
