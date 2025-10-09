@@ -54,7 +54,6 @@ async function uploadDirectoryToGCS(
       });
       filesUploaded++;
       totalBytes += stat.size;
-      console.log(`✓ Uploaded: ${gcsPath}`);
     }
   }
 
@@ -91,10 +90,8 @@ export async function POST(request: NextRequest) {
     }
 
     const { assetId } = asset;
-    console.log('Validated asset:', assetId);
 
     // Download the image
-    console.log('Downloading image from Sanity...');
     const response = await fetch(asset.url);
     if (!response.ok) {
       return NextResponse.json(
@@ -111,7 +108,6 @@ export async function POST(request: NextRequest) {
     const dziOutputPath = path.join(tempDir, assetId);
 
     // Generate DZI tiles
-    console.log('Generating DZI tiles...');
     const startTime = Date.now();
     
     await sharp(buffer)
@@ -124,10 +120,8 @@ export async function POST(request: NextRequest) {
       .toFile(dziOutputPath);
 
     const processingTime = ((Date.now() - startTime) / 1000).toFixed(2);
-    console.log(`DZI tiles generated in ${processingTime}s`);
 
     // Upload to Google Cloud Storage
-    console.log('\nUploading to Google Cloud Storage...');
     const uploadStartTime = Date.now();
 
     // Upload the .dzi manifest file
@@ -141,16 +135,12 @@ export async function POST(request: NextRequest) {
         contentType: 'application/xml',
       },
     });
-    console.log(`✓ Uploaded: ${assetId}/${dziFile}`);
 
     // Upload all tile directories
     const tilesDir = path.join(tempDir, `${assetId}_files`);
     const uploadResult = await uploadDirectoryToGCS(tilesDir, `${assetId}/${assetId}_files`);
 
     const uploadTime = ((Date.now() - uploadStartTime) / 1000).toFixed(2);
-    console.log(`\n✓ Upload complete in ${uploadTime}s`);
-    console.log(`Total files uploaded: ${uploadResult.filesUploaded + 1}`); // +1 for .dzi file
-    console.log(`Total size: ${(uploadResult.totalBytes / 1024 / 1024).toFixed(2)} MB`);
 
     // Clean up temp directory
     fs.rmSync(tempDir, { recursive: true, force: true });
@@ -177,7 +167,6 @@ export async function POST(request: NextRequest) {
     );
 
   } catch (error) {
-    console.error('Error processing request:', error);
     
     // Clean up temp directory if it exists
     if (tempDir && fs.existsSync(tempDir)) {

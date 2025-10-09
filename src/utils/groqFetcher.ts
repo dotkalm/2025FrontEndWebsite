@@ -28,7 +28,6 @@ export async function sanityFetch<T = unknown, P = Record<string, unknown>>(
     try {
         const response = await fetch(url.toString())
 
-        console.log(response);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`)
         }

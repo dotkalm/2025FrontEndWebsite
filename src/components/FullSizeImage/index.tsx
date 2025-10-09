@@ -30,8 +30,6 @@ const SingleImage: FC<TArtwork> = artwork => {
         setUseFallback(true);
     }
 
-    console.log(artwork);
-
     return (
         <Fragment>
             <Box

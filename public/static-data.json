@@ -296,22 +296,22 @@
         "mainImage": {
           "alt": "Gift Of Fear",
           "asset": {
-            "_id": "image-2e101e947c692509750af79f8b1e223265742829-6982x4971-jpg",
-            "assetId": "2e101e947c692509750af79f8b1e223265742829",
+            "_id": "image-4673972ecc5735e1df2a66a9445e75ac5021d707-6982x4971-tif",
+            "assetId": "4673972ecc5735e1df2a66a9445e75ac5021d707",
             "metadata": {
-              "blurHash": "VFQ0U8-o~qD%.8%2V@ofkBbbyDI:M{-;Md.9X8Rjs:aK",
+              "blurHash": "VFQ0R1-W~qD*.8xuV@ofkCkCyDI:M{-;Md.8X8Rjs:aK",
               "dimensions": {
                 "aspectRatio": 1.4045463689398512,
                 "height": 4971,
                 "width": 6982
               },
-              "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAOABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAYDBQj/xAAjEAABBAEEAQUAAAAAAAAAAAABAAIDBBEFBhIhEyJBUWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAXEQEBAQEAAAAAAAAAAAAAAAAAIQER/9oADAMBAAIRAxEAPwDQF+RzbQjaH4PuG9Jb3BuZ+ha7o9F1WWZl+TgZWj0x/qabU/E4wqu3WhvWass7STWk8kePn7QruSGQAYHSFBHNyYDhCUv/2Q=="
+              "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAOABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAYDBQj/xAAjEAABBAEEAQUAAAAAAAAAAAABAAIDBBEFBhIhEyJBUWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAVEQEBAAAAAAAAAAAAAAAAAAAAIf/aAAwDAQACEQMRAD8A0Bfkc202Nofg+4b0lvcG536Fruj0HVZZmX38DK0emP8AU1WpuJxhVVutDes1ZZ2kurSeSPHz9oqpIZABgdIUEc3JgOEJS//Z"
             },
-            "originalFilename": "2014_GiftOfFear_AcrylicOnCanvas_48x72in.jpg",
-            "path": "images/zflu9f6c/production/2e101e947c692509750af79f8b1e223265742829-6982x4971.jpg",
-            "size": 16380792,
+            "originalFilename": "2014_GiftOfFear_AcrylicOnCanvas_48x72in.tif",
+            "path": "images/zflu9f6c/production/4673972ecc5735e1df2a66a9445e75ac5021d707-6982x4971.tif",
+            "size": 104154032,
             "title": null,
-            "url": "https://cdn.sanity.io/images/zflu9f6c/production/2e101e947c692509750af79f8b1e223265742829-6982x4971.jpg"
+            "url": "https://cdn.sanity.io/images/zflu9f6c/production/4673972ecc5735e1df2a66a9445e75ac5021d707-6982x4971.tif"
           },
           "caption": null,
           "crop": null,

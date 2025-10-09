@@ -26,7 +26,6 @@ const DeepZoom: FC<DeepZoomProps> = ({ assetId, onDziNotFound }) => {
                     onDziNotFound?.();
                 }
             } catch (error) {
-                console.error('Error checking DZI file:', error);
                 setDziExists(false);
                 onDziNotFound?.();
             }

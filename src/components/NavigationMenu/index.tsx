@@ -8,7 +8,6 @@ import Image from "next/image";
 const NavMenu: React.FC = () => {
     const searchParams = useSearchParams()
     const fullscreen = searchParams.get('fullscreen');
-    console.log('searchParams in NavMenu:', searchParams.toString());
     return (
         <AppBar
             color="transparent"
