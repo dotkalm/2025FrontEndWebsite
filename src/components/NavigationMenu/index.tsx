@@ -1,6 +1,6 @@
 'use client';
 import React from "react";
-import { useSearchParams, usePathname } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from '@mui/material/Toolbar';
 import Image from "next/image";

@@ -1,9 +1,9 @@
+'use client';
 import React, { type FC, Fragment, useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
-import { useTheme } from '@mui/material/styles';
 import NextImage from 'next/image';
 import { type TSanityImageAsset } from '@/types';
 import { makeResponsiveContain } from '@/utils/makeImageProps';
@@ -11,7 +11,6 @@ import { type TArtwork } from "@/types";
 import DeepZoom from '@/components/DeepZoom';
 
 const SingleImage: FC<TArtwork> = artwork => {
-    const theme = useTheme();
     const altDescription = artwork.mainImage?.alt || '';
     const asset = artwork.mainImage?.asset as TSanityImageAsset;
     const imageUrl = makeResponsiveContain(asset, false, [1200]).w1200;

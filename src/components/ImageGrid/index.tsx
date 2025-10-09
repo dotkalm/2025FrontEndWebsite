@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 import { type TLandingPage } from '@/types';
 import { carouselStyles } from '@/theme/styles';
-import { useSearchParams, usePathname, useRouter } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import ImageContainer from './components/ImageContainer';
 import SingleImage from '@/components/FullSizeImage';
 
@@ -11,8 +11,6 @@ type ImageGridProps = Pick<TLandingPage, 'carousel'>;
 
 const ImageGrid: FC<ImageGridProps> = ({ carousel }) => {
     const searchParams = useSearchParams()
-    const pathname = usePathname()
-    const router = useRouter()
     const id = searchParams.get('_id');
     const fullscreen = searchParams.get('fullscreen');
     const artwork = fullscreen ? carousel.find(item => item.mainImage?.asset._id === id) : null;

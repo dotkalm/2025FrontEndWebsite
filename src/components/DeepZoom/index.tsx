@@ -1,5 +1,5 @@
+'use client';
 import { type FC, useEffect, useRef, useState } from 'react';
-import OpenSeadragon from 'openseadragon';
 import Box from '@mui/material/Box';
 
 interface DeepZoomProps {
@@ -7,9 +7,13 @@ interface DeepZoomProps {
     onDziNotFound?: () => void;
 }
 
+interface OpenSeadragonViewer {
+    destroy: () => void;
+}
+
 const DeepZoom: FC<DeepZoomProps> = ({ assetId, onDziNotFound }) => {
     const viewerRef = useRef<HTMLDivElement>(null);
-    const osdViewerRef = useRef<OpenSeadragon.Viewer | null>(null);
+    const osdViewerRef = useRef<OpenSeadragonViewer | null>(null);
     const [dziExists, setDziExists] = useState<boolean | null>(null);
 
     useEffect(() => {
@@ -26,6 +30,7 @@ const DeepZoom: FC<DeepZoomProps> = ({ assetId, onDziNotFound }) => {
                     onDziNotFound?.();
                 }
             } catch (error) {
+                console.error('Error checking DZI existence:', error);
                 setDziExists(false);
                 onDziNotFound?.();
             }
@@ -37,28 +42,40 @@ const DeepZoom: FC<DeepZoomProps> = ({ assetId, onDziNotFound }) => {
     useEffect(() => {
         if (!viewerRef.current || !assetId || dziExists !== true) return;
 
-        // Initialize OpenSeadragon viewer
-        osdViewerRef.current = OpenSeadragon({
-            element: viewerRef.current,
-            tileSources: `https://storage.googleapis.com/dzitiles2025/${assetId}/${assetId}.dzi`,
-            prefixUrl: 'https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/',
-            animationTime: 0.5,
-            blendTime: 0.1,
-            constrainDuringPan: true,
-            maxZoomPixelRatio: 2,
-            minZoomLevel: 1,
-            visibilityRatio: 1,
-            zoomPerScroll: 2,
-            showNavigationControl: true,
-            navigationControlAnchor: OpenSeadragon.ControlAnchor.TOP_RIGHT,
-            showZoomControl: true,
-            showHomeControl: true,
-            showFullPageControl: true,
-            showRotationControl: false,
+        // Dynamically import OpenSeadragon to avoid SSR issues
+        let mounted = true;
+
+        import('openseadragon').then((module) => {
+            if (!mounted || !viewerRef.current) return;
+
+            // Initialize OpenSeadragon viewer
+            // Using 'as any' for the dynamically imported module to avoid complex type gymnastics
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const OSD = module.default as any;
+
+            osdViewerRef.current = OSD({
+                element: viewerRef.current,
+                tileSources: `https://storage.googleapis.com/dzitiles2025/${assetId}/${assetId}.dzi`,
+                prefixUrl: 'https://cdn.jsdelivr.net/npm/openseadragon@5.0/build/openseadragon/images/',
+                animationTime: 0.5,
+                blendTime: 0.1,
+                constrainDuringPan: true,
+                maxZoomPixelRatio: 2,
+                minZoomLevel: 1,
+                visibilityRatio: 1,
+                zoomPerScroll: 2,
+                showNavigationControl: true,
+                navigationControlAnchor: OSD.ControlAnchor.TOP_RIGHT,
+                showZoomControl: true,
+                showHomeControl: true,
+                showFullPageControl: true,
+                showRotationControl: false,
+            }) as OpenSeadragonViewer;
         });
 
         // Cleanup on unmount
         return () => {
+            mounted = false;
             if (osdViewerRef.current) {
                 osdViewerRef.current.destroy();
                 osdViewerRef.current = null;
