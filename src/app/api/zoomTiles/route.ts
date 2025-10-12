@@ -8,7 +8,8 @@ import os from 'os';
 
 interface TZoomTileRequestBody {
     uuid: string;
-};
+    path: string;
+}
 
 const privateKey = process.env.GCS_PRIVATE_KEY?.replace(/\\n/g, '\n');
 
@@ -67,12 +68,14 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     if (!isValidZoomTileRequest(body)) {
       return NextResponse.json(
-        { error: 'Invalid request body' },
+        { error: 'Invalid request body. Required fields: uuid (string) and path (string)' },
         { status: 400 }
       );
     }
 
-    const { uuid } = body;
+    const { uuid, path: relativePath } = body;
+    
+    // Validate the Sanity asset to get the assetId
     const asset = await validateSanityAsset(uuid);
     
     if ('valid' in asset && !asset.valid) {
@@ -82,39 +85,52 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if(!('url' in asset)) {
+    if (!('assetId' in asset)) {
       return NextResponse.json(
-        { error: 'Asset does not contain a URL' },
+        { error: 'Asset does not contain assetId' },
         { status: 400 }
       );
     }
 
     const { assetId } = asset;
 
-    // Download the image
-    const response = await fetch(asset.url);
-    if (!response.ok) {
+    // Check if the local file exists
+    const basePath = '/Users/joelholmberg/webapps/joelholmberg/images';
+    const localFilePath = path.join(basePath, relativePath);
+    if (!fs.existsSync(localFilePath)) {
       return NextResponse.json(
-        { error: 'Failed to fetch asset image' },
-        { status: 500 }
+        { error: `File not found at path: ${localFilePath}` },
+        { status: 400 }
       );
     }
 
-    const arrayBuffer = await response.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
+    // Read the original TIFF file from local filesystem
+    console.log(`Reading original TIFF from: ${localFilePath}`);
+    const buffer = fs.readFileSync(localFilePath);
+
+    // Log source image metadata
+    const metadata = await sharp(buffer).metadata();
+    console.log('Source image metadata:', {
+      format: metadata.format,
+      width: metadata.width,
+      height: metadata.height,
+      space: metadata.space,
+      channels: metadata.channels,
+      depth: metadata.depth,
+    });
 
     // Prepare temp directory
     tempDir = fs.mkdtempSync(path.join(os.tmpdir(), `dzi-${assetId}-`));
     const dziOutputPath = path.join(tempDir, assetId);
 
-    // Generate DZI tiles
+    // Generate DZI tiles with high quality settings
     const startTime = Date.now();
     
     await sharp(buffer)
       .tile({
-        size: 256,
+        size: 512,      // Larger tile size for better quality
         layout: 'dz',
-        overlap: 1,
+        overlap: 2,     // Increased overlap for smoother transitions
         container: 'fs',
       })
       .toFile(dziOutputPath);
@@ -156,6 +172,11 @@ export async function POST(request: NextRequest) {
         assetId,
         dziUrl,
         tilesUrl: `${baseUrl}/${assetId}/${assetId}_files`,
+        sourceMetadata: {
+          format: metadata.format,
+          width: metadata.width,
+          height: metadata.height,
+        },
         stats: {
           processingTimeSeconds: parseFloat(processingTime),
           uploadTimeSeconds: parseFloat(uploadTime),
@@ -165,8 +186,8 @@ export async function POST(request: NextRequest) {
       },
       { status: 200 }
     );
-
   } catch (error) {
+    console.error('Error processing zoom tiles:', error);
     
     // Clean up temp directory if it exists
     if (tempDir && fs.existsSync(tempDir)) {
@@ -180,17 +201,27 @@ export async function POST(request: NextRequest) {
   }
 }
 
-function isValidZoomTileRequest(body: TZoomTileRequestBody): body is TZoomTileRequestBody {
+function isValidZoomTileRequest(body: {
+  uuid: unknown;
+  path?: unknown;
+}): body is TZoomTileRequestBody {
   return (
     typeof body === 'object' &&
     body !== null &&
     typeof body.uuid === 'string' &&
-    body.uuid.length > 0
+    body.uuid.length > 0 &&
+    typeof body.path === 'string' &&
+    body.path.length > 0
   );
 }
+
 /*
-    test this in curl with 
-    curl -L -X POST http://192.168.86.43:3000/api/zoomTiles \
-    -H "Content-Type: application/json" \
-    -d '{"uuid": "image asset _id"}'
+Test this with curl:
+
+curl -L -X POST http://localhost:3000/api/zoomTiles \
+-H "Content-Type: application/json" \
+-d '{
+  "uuid": "image-abc123-1920x1080-jpg",
+  "path": "/Users/yourname/path/to/original.tif"
+}'
 */

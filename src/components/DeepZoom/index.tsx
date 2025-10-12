@@ -60,16 +60,22 @@ const DeepZoom: FC<DeepZoomProps> = ({ assetId, onDziNotFound }) => {
                 animationTime: 0.5,
                 blendTime: 0.1,
                 constrainDuringPan: true,
-                maxZoomPixelRatio: 2,
+                maxZoomPixelRatio: 3,        // Increased for sharper rendering on high-DPI displays
                 minZoomLevel: 0.3,
                 visibilityRatio: 1,
-                zoomPerScroll: 1,
+                zoomPerScroll: 0.8,
                 showNavigationControl: true,
                 navigationControlAnchor: OSD.ControlAnchor.TOP_RIGHT,
                 showZoomControl: true,
                 showHomeControl: true,
                 showFullPageControl: true,
                 showRotationControl: false,
+                // Optional: Enable smooth tile edges
+                smoothTileEdgesMinZoom: 1.5,
+                // Optional: Immediate render for better perceived performance
+                immediateRender: false,
+                // Optional: Load tiles at slightly higher resolution
+                minPixelRatio: 0.5,
             }) as OpenSeadragonViewer;
         });
 
