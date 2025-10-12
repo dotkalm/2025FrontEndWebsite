@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import LayoutWrapper from "@/theme/LayoutWrapper";
-import Box from "@mui/material/Box";
 
 export const metadata: Metadata = {
   title: "Joel Holmberg dot com",
@@ -15,9 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Box
-        component="body"
-        sx={{
+      <body
+        style={{
           margin: 0,
           padding: 0,
           height: '101%',
@@ -30,7 +28,7 @@ export default function RootLayout({
           {children}
           <Analytics />
         </LayoutWrapper>
-      </Box>
+      </body>
     </html>
   );
 }
