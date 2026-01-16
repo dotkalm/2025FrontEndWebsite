@@ -15,6 +15,9 @@ export default function Home() {
       component="main"
       sx={{
         width: '100%',
+        maxWidth: '100vw',
+        overflowX: 'hidden',
+        boxSizing: 'border-box',
         paddingTop: {
           xs: 7,
         },

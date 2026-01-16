@@ -203,6 +203,9 @@ export default function AboutTable() {
     <Box
       sx={{
         width: '100%',
+        maxWidth: '100vw',
+        overflowX: 'hidden',
+        boxSizing: 'border-box',
         display: 'flex',
         justifyContent: 'center',
         alignContent: 'center',
@@ -222,6 +225,8 @@ export default function AboutTable() {
             md: '80%',
             lg: '70%',
           },
+          maxWidth: '100%',
+          boxSizing: 'border-box',
           display: 'flex',
           justifyContent: 'center',
           alignContent: 'center',

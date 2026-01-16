@@ -22,7 +22,8 @@ export default function RootLayout({
           overscrollBehaviorY: 'none',
           overscrollBehavior: 'none',
           overflowY: 'auto',
-        background: 'linear-gradient(135deg, rgba(205, 200, 240, 1) 0%, rgba(245, 240, 235, 1) 50%, rgba(250, 245, 200, 1) 100%)',
+          overflowX: 'hidden',
+          background: 'linear-gradient(135deg, rgba(205, 200, 240, 1) 0%, rgba(245, 240, 235, 1) 50%, rgba(250, 245, 200, 1) 100%)',
         }}>
         <LayoutWrapper>
           {children}
