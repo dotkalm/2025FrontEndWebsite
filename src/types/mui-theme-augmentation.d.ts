@@ -39,6 +39,15 @@ declare module '@mui/material/styles' {
       gray: string;
       red: string;
       white: string;
+      background: string;
+      coverBackground: string;
+      tableBackground: string;
+      articleBackground: string;
+      buttonColor: string;
+      textColor: string;
+      borderColor: string;
+      headerBackground: string;
+      h1Color: string;
     };
   }
 
@@ -48,6 +57,15 @@ declare module '@mui/material/styles' {
       gray?: string;
       red?: string;
       white?: string;
+      background?: string;
+      coverBackground?: string;
+      tableBackground?: string;
+      articleBackground?: string;
+      buttonColor?: string;
+      textColor?: string;
+      borderColor?: string;
+      headerBackground?: string;
+      h1Color?: string;
     };
   }
 

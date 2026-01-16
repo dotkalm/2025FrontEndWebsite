@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { getStaticData } from "@/utils/getStaticData";
 import { JSON_KEYS, type TLandingPage } from "@/types";
 import ImageGrid from "@/components/ImageGrid";
+import AboutTable from "@/components/Table";
 
 export default function Home() {
   const {
@@ -23,6 +24,7 @@ export default function Home() {
       }}
     >
       <Suspense fallback={<div>Loading...</div>}>
+        <AboutTable />
         <ImageGrid carousel={carousel} />
       </Suspense>
     </Box>

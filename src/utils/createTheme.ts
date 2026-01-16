@@ -116,5 +116,22 @@ export function createMuiTheme(): Theme {
                 xl: 1440
             }
         },
+        palette: {
+            customColors: {
+                black: '#000000',
+                gray: '#808080',
+                red: '#FF0000',
+                white: '#FFFFFF',
+                background: '#FFFFFF',
+                coverBackground: '#F5F5F5',
+                tableBackground: '#FAFAFA',
+                articleBackground: '#FFFFFF',
+                buttonColor: '#000000',
+                textColor: '#333333',
+                borderColor: '#E0E0E0',
+                headerBackground: '#FFFFFF',
+                h1Color: '#000000'
+            }
+        }
     });
 }

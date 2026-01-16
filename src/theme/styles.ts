@@ -1,10 +1,11 @@
 import { type SxProps } from "@mui/material";
 export const carouselStyles: SxProps = {
       transform: 'translateZ(0)',
-    height: '100%',
-    overflowY: 'auto',
     paddingTop: 2,
-    backgroundColor: 'rgba(45, 45, 145, 1)',
+    paddingX: {
+        xs: 0,
+        md: '2rem',
+    },
     justifyContent: 'flex-start',
     mx: 0,
     willChange: 'transform, grid-template-columns',
@@ -16,17 +17,24 @@ export const carouselStyles: SxProps = {
     },
     width: {
         xs: '100vw',
+        md: '100vw',
+        lg: '100vw',
     },
+    boxSizing: 'border-box',
     display: 'grid',
     alignItems: 'center',
+    gap: 2,
     gridTemplateColumns: {
         xs: '100vw',
-        md: '50vw 50vw',
-        lg: '33vw 33vw 33vw',
+        md: 'repeat(2, 1fr)',
+        lg: 'repeat(3, 1fr)',
     },
     '& > *': {
         position: 'relative',
-        padding: 1,
+                boxShadow: '3px 3px 4px rgba(0,0,0,0.5)',
+                padding: 2,
+                backgroundColor: 'white',
+                borderRadius: 2,
     },
     '& img': {
         display: 'block',
