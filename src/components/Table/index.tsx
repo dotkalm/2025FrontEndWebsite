@@ -8,6 +8,7 @@ import Collapse from '@mui/material/Collapse';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 
 interface MediaItem {
   type: 'image' | 'video';
@@ -478,13 +479,66 @@ export default function AboutTable() {
             </Box>
           </Box>
 
-          {/* Show/hide button */}
+          {/* Show/hide button row */}
           <Box
             sx={{
               display: 'flex',
-              justifyContent: 'flex-end',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: 2,
             }}
           >
+            {/* Thumbnail preview grid */}
+            <Box
+              sx={{
+                display: 'flex',
+                gap: 0.5,
+                flex: 1,
+                flexWrap: 'nowrap',
+                height: '49px', // Match IconButton height (paddingY: 1.5 = 12px * 2 + body2 line height ~25px)
+                alignItems: 'center',
+                opacity: expanded ? 0 : 1,
+                clipPath: expanded ? 'inset(50% 0% 50% 0%)' : 'inset(0% 0% 0% 0%)',
+                overflow: 'hidden',
+                transition: 'opacity 0.4s ease-in-out, clip-path 0.4s ease-in-out',
+                pointerEvents: expanded ? 'none' : 'auto',
+              }}
+            >
+              {remainingRows
+                .filter(row => row.media.length > 0 && row.media[0].type === 'image')
+                .slice(0, 6)
+                .map((row) => {
+                  const mediaItem = row.media[0];
+                  return (
+                    <Box
+                      key={`${row.id}-preview`}
+                      sx={{
+                        width: '10dvh',
+                        height: '10dvh',
+                        flexShrink: 0,
+                        borderRadius: 1,
+                        border: '1px solid rgba(200, 200, 200, 0.5)',
+                        boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
+                        overflow: 'hidden',
+                        position: 'relative',
+                        '& img': {
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'contain',
+                        },
+                      }}
+                    >
+                      <Image
+                        src={mediaItem.src}
+                        alt={mediaItem.alt}
+                        fill
+                        style={{ objectFit: 'contain' }}
+                      />
+                    </Box>
+                  );
+                })}
+            </Box>
+            
             <IconButton
               onClick={() => setExpanded(!expanded)}
               sx={{
@@ -537,7 +591,7 @@ export default function AboutTable() {
                 overflow: 'hidden',
                 color: {
                   xs: 'white',
-                  sm: '#929292',
+                  // sm: '#929292',
                 },
                 '&::before': {
                   content: {

@@ -15,6 +15,12 @@ const nextConfig: NextConfig = {
         hostname: 'storage.googleapis.com',
         pathname: '/dzitiles2025/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
     formats: ['image/webp', 'image/avif'],
   },
