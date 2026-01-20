@@ -1,40 +1,15 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#Joel Holmberg dot com
 
-## Getting Started
+## as always a work-in-progress
 
-First, run the development server:
+Leveraging zoom tiles for high-res photos of artwork
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+I'm having fun with the cards. The top section was influenced by my github profile. I'm adding my software projects there.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<img width="60%" alt="Screenshot 2026-01-20 at 4 49 35 PM" src="https://github.com/user-attachments/assets/432a9fa7-cde7-4a5f-9257-af70e64f734e" />
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<img width="20%"  alt="Screenshot 2026-01-20 at 4 49 27 PM" src="https://github.com/user-attachments/assets/392afdf6-e713-4caa-943d-22dbce6117a0" />
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Header shows an asset created from my signature. I'll try to enhance this a little.
+Most of the content is consumed by sanity and compilled into a .json before the build step. 
 
-## TODO
-
-- **Remove github.com from next.config.ts**: Once Sanity queries are properly set up to serve all images, remove `github.com` from the `remotePatterns` array in the images configuration.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
