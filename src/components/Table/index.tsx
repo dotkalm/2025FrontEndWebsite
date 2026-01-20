@@ -42,6 +42,78 @@ const tableData: TableRowData[] = [
     mediaWidth: '30%'
   },
   {
+    id: 'row-1-2',
+    media: [
+      {
+        type: 'image',
+        src: 'https://github.com/user-attachments/assets/478026a5-c1c6-4392-9a30-f7d426ff26f2',
+        alt: 'svg',
+        height: '240px'
+      }
+    ],
+    description: (
+      <>
+        I made a webcam that creates new SVG markup every frame. <br/> use it here 👉 <a href="https://s-v-g.xyz">https://s-v-g.xyz</a>
+      </>
+    ),
+    mediaWidth: '30%',
+    descriptionWidth: '50%'
+  },
+  {
+    id: 'row-1-3',
+    media: [
+      {
+        type: 'image',
+        src: 'https://github.com/user-attachments/assets/34473723-04a6-4008-98ec-0b4933c179a7',
+        alt: 'booted',
+        height: '240px'
+      }
+    ],
+    description: (
+      <>
+        I'm using machine learning to prank people that their car got booted.  <a href="https://github.com/dotkalm/BootedWebAppFrontend/tree/main">View it on github</a>
+      </>
+    ),
+    mediaWidth: '30%',
+    descriptionWidth: '50%'
+  },
+  {
+    id: 'row-1-4',
+    media: [
+      {
+        type: 'image',
+        src: 'https://github.com/user-attachments/assets/de0fe903-b18b-4cac-8de6-4777e2cb5ee4',
+        alt: 'garage door live',
+        height: '240px'
+      }
+    ],
+    description: (
+      <>
+        During covid I set up a webhook for my garage door and made my <a href="https://github.com/dotkalm/garageDoor">garage door activity public</a>
+      </>
+    ),
+    mediaWidth: '30%',
+    descriptionWidth: '50%'
+  },
+  {
+    id: 'row-1-5',
+    media: [
+      {
+        type: 'image',
+        src: 'https://github.com/user-attachments/assets/ebcb5228-b9d6-4308-a30a-0340f2d3455c',
+        alt: 'wordle',
+        height: '240px'
+      }
+    ],
+    description: (
+      <>
+      In 2021 I published a browser extension for solving wordle. <a href="https://github.com/dotkalm/WordleSolver/tree/main">View the repo </a>
+      </>
+    ),
+    mediaWidth: '30%',
+    descriptionWidth: '50%'
+  },
+  {
     id: 'row-2',
     media: [
       {
@@ -73,7 +145,7 @@ const tableData: TableRowData[] = [
     ],
     description: (
       <>
-        I was a founder of NastyNets, an influential <em>web surfing blog</em>. Here I am at the Sundance Festival showing Robert Redford all of my <em>taco related purchases</em>
+        I was a founder of NastyNets, an influential <em>web surfing blog</em>. Here I am at the Sundance Festival showing Robert Redford all of my <em>Taco Related Purchases of 2007</em>.
         <br /><br />
         https://anthology.rhizome.org/nasty-nets
       </>
@@ -110,7 +182,7 @@ const tableData: TableRowData[] = [
     ],
     description: (
       <>
-        I used to be DJ Filetype SWF, <em>web-surfing music performance</em>, where I would DJ found websites that used autoplay. Video is from AND Festival in Liverpool, UK, 2011
+        I used to be DJ Filetype SWF, <em>web-surfing music performance</em>, where I would DJ found websites that used autoplay. Video is from AND Festival in Liverpool, UK, 2011.
       </>
     ),
     mediaWidth: '30%',
@@ -147,7 +219,7 @@ const tableData: TableRowData[] = [
     ],
     description: (
       <>
-        Here are some modern office furnishing from my first solo exhibition: <em>Soft Laws</em> at American Contemporary, NY, 2013
+        Here are some modern office furnishing from my first solo exhibition: <em>Soft Laws</em> at American Contemporary, NY, 2013.
       </>
     ),
     mediaWidth: '30%'
@@ -164,7 +236,7 @@ const tableData: TableRowData[] = [
     ],
     description: (
       <>
-        Collectors commissioned me to dig through their stuff so that I could find microphone shaped objects to make a <em>press conference sculpture</em> as a portrait of them.
+        In 2015 collectors commissioned me to dig through their stuff so that I could find microphone shaped objects to make a <em>press conference sculpture</em> as a portrait of them.
       </>
     ),
     mediaWidth: '30%'
@@ -181,7 +253,7 @@ const tableData: TableRowData[] = [
     ],
     description: (
       <>
-        I made large scale paintings of websites and showed them at the <strong>Hammer Museum</strong> in 2016
+        I made large scale paintings of websites and showed them at the <strong>Hammer Museum</strong> in 2016.
       </>
     ),
     mediaWidth: '30%'
@@ -511,7 +583,7 @@ export default function AboutTable() {
             >
               {remainingRows
                 .filter(row => row.media.length > 0 && row.media[0].type === 'image')
-                .slice(0, 6)
+                .slice(0, 10)
                 .map((row) => {
                   const mediaItem = row.media[0];
                   return (
