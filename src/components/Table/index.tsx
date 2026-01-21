@@ -53,7 +53,7 @@ const tableData: TableRowData[] = [
     ],
     description: (
       <>
-        I made a webcam that creates new SVG markup every frame. <br/> use it here 👉 <a href="https://s-v-g.xyz">https://s-v-g.xyz</a>
+        I made a webcam that creates new SVG markup every frame. <br/> Use it here 👉 <a href="https://s-v-g.xyz">https://s-v-g.xyz</a>
       </>
     ),
     mediaWidth: '30%',
@@ -71,7 +71,7 @@ const tableData: TableRowData[] = [
     ],
     description: (
       <>
-        I'm using machine learning to prank people that their car got booted.  <a href="https://github.com/dotkalm/BootedWebAppFrontend/tree/main">View it on github</a>
+        I'm using machine learning to prank people into thinking that their car got booted.  <a href="https://github.com/dotkalm/BootedWebAppFrontend/tree/main">View it on github</a>
       </>
     ),
     mediaWidth: '30%',
@@ -89,7 +89,7 @@ const tableData: TableRowData[] = [
     ],
     description: (
       <>
-        During covid I set up a webhook for my garage door and made my <a href="https://github.com/dotkalm/garageDoor">garage door activity public</a>
+        During COVID I made my <a href="https://github.com/dotkalm/garageDoor">garage door activity public</a>.
       </>
     ),
     mediaWidth: '30%',
@@ -107,7 +107,7 @@ const tableData: TableRowData[] = [
     ],
     description: (
       <>
-      In 2021 I published a browser extension for solving wordle. <a href="https://github.com/dotkalm/WordleSolver/tree/main">View the repo </a>
+      In 2021 I published a browser extension for solving Wordle. <a href="https://github.com/dotkalm/WordleSolver/tree/main">View the repo </a>
       </>
     ),
     mediaWidth: '30%',
@@ -125,7 +125,7 @@ const tableData: TableRowData[] = [
     ],
     description: (
       <>
-        In 2010 I had some viral fame for creating a grid of found youtube videos showing dogs freaking out to the law&order theme song.
+        In 2010 I had some viral fame for creating a grid of found YouTube videos showing dogs freaking out to the Law & Order theme song.
         <br /><br />
         https://boingboing.net/2010/02/23/rachel-maddow-on-dog.html
       </>
@@ -162,11 +162,7 @@ const tableData: TableRowData[] = [
         height: '240px'
       }
     ],
-    description: (
-      <>
-        The first work I had shown in a museum was an installation of questions I asked on Yahoo! Answers. Here is <em>Legendary Account</em> at the New Museum in NYC in 2009.
-      </>
-    ),
+    description: 'The first work I showed in a museum was an installation of questions I asked on Yahoo! Answers. Here is <em>Legendary Account</em> at the New Museum in NYC in 2009.',
     mediaWidth: '30%'
   },
   {
@@ -180,11 +176,7 @@ const tableData: TableRowData[] = [
         controls: true
       }
     ],
-    description: (
-      <>
-        I used to be DJ Filetype SWF, <em>web-surfing music performance</em>, where I would DJ found websites that used autoplay. Video is from AND Festival in Liverpool, UK, 2011.
-      </>
-    ),
+    description: 'DJ Filetype SWF was a web-surfing music performance where I would DJ found websites that used autoplay. Video is from AND Festival in Liverpool, UK, 2011.',
     mediaWidth: '30%',
     mediaHeight: '130px'
   },
@@ -198,7 +190,7 @@ const tableData: TableRowData[] = [
         height: '180px'
       }
     ],
-    description: 'I recieved an MFA from Yale in 2013. I made these custom roller shades for my thesis show.',
+    description: 'I received an MFA from Yale in 2013. I made these custom roller shades for my thesis show.',
     mediaWidth: '30%'
   },
   {
@@ -219,7 +211,7 @@ const tableData: TableRowData[] = [
     ],
     description: (
       <>
-        Here are some modern office furnishing from my first solo exhibition: <em>Soft Laws</em> at American Contemporary, NY, 2013.
+        Here are some modern office furnishings from my first solo exhibition: <em>Soft Laws</em> at American Contemporary, NY, 2013.
       </>
     ),
     mediaWidth: '30%'
@@ -236,7 +228,7 @@ const tableData: TableRowData[] = [
     ],
     description: (
       <>
-        In 2015 collectors commissioned me to dig through their stuff so that I could find microphone shaped objects to make a <em>press conference sculpture</em> as a portrait of them.
+        In 2015 collectors commissioned me to dig through their stuff so that I could find microphone-shaped objects to make a <em>press conference sculpture</em> as a portrait of them.
       </>
     ),
     mediaWidth: '30%'
@@ -253,7 +245,7 @@ const tableData: TableRowData[] = [
     ],
     description: (
       <>
-        I made large scale paintings of websites and showed them at the <strong>Hammer Museum</strong> in 2016.
+        I made large-scale paintings of websites and showed them at the <strong>Hammer Museum</strong> in 2016.
       </>
     ),
     mediaWidth: '30%'
