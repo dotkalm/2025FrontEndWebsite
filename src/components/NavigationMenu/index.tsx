@@ -3,7 +3,8 @@ import React from "react";
 import { useSearchParams } from "next/navigation";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from '@mui/material/Toolbar';
-import Image from "next/image";
+//import Image from "next/image";
+import Name from "@/components/Name";
 
 const NavMenu: React.FC = () => {
     const searchParams = useSearchParams()
@@ -24,7 +25,7 @@ const NavMenu: React.FC = () => {
                     justifyContent: 'flex-start',
                     paddingTop: 0.5,
                     paddingBottom: 0.5,
-                    '& img': {
+                    '& img, & svg': {
                         transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                         height: {
                             xs: fullscreen ? 0 : 12.5,
@@ -39,13 +40,7 @@ const NavMenu: React.FC = () => {
                     }
                 }}
             >
-                <Image
-                    priority
-                    src="/myName.svg"
-                    alt="joel holmberg"
-                    width={300}
-                    height={50}
-                />
+                <Name />
             </Toolbar>
         </AppBar>
     );

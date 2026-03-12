@@ -1,5 +1,5 @@
 'use client';
-import React, { type FC, useRef, type PointerEvent, useCallback } from 'react';
+import { type FC, useRef, type PointerEvent, useCallback } from 'react';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import Box from '@mui/material/Box';
 import { type TSanityImageAsset } from '@/types';
