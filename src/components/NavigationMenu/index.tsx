@@ -9,6 +9,7 @@ import Name from "@/components/Name";
 const NavMenu: React.FC = () => {
     const searchParams = useSearchParams()
     const fullscreen = searchParams.get('fullscreen');
+    console.log('fullscreen:', fullscreen, fullscreen === 'true');
     return (
         <AppBar
             color="transparent"
@@ -17,6 +18,9 @@ const NavMenu: React.FC = () => {
                 backgroundColor: 'rgba(255, 195, 155, 1)',
                 transition: 'transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms',
                 borderBottom: '2px solid rgba(5, 5, 5, 1)',
+                '.MuiToolbar-gutters': {
+                    paddingX: 0,
+                }
             }}
         >
             <Toolbar
@@ -25,22 +29,12 @@ const NavMenu: React.FC = () => {
                     justifyContent: 'flex-start',
                     paddingTop: 0.5,
                     paddingBottom: 0.5,
-                    '& img, & svg': {
-                        transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
-                        height: {
-                            xs: fullscreen ? 0 : 12.5,
-                            sm: 25,
-                            md: 50,
-                        },
-                        width: {
-                            xs: fullscreen ? 0 : 75,
-                            sm: 150,
-                            md: 300,
-                        },
-                    }
+                    paddingLeft: 0,
                 }}
             >
-                <Name />
+                <Name 
+                    fullscreen={fullscreen === 'true'}
+                />
             </Toolbar>
         </AppBar>
     );
