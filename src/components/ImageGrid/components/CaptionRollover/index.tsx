@@ -29,6 +29,7 @@ const RolloverCaptions: FC<TRolloverCaptionsProps> = imageInfo => {
                 visibility: isActive ? 'visible' : 'hidden',
                 width: '100%',
                 pointerEvents: 'none',
+                inset: 0,
             }}
         >
             <Typography
@@ -36,10 +37,13 @@ const RolloverCaptions: FC<TRolloverCaptionsProps> = imageInfo => {
                 gutterBottom
                 component="div"
                 sx={{
-                    marginLeft: 2,
                     lineHeight: 1.2,
+                    marginTop: 1.5,
+                    height: '100%',
+                    paddingTop: 2,
+                    paddingLeft: 2,
                 }} >
-                {imageInfo.altDescription} <br />
+                {imageInfo.altDescription && `${imageInfo.altDescription}\n`}
                 {imageInfo.year && `${imageInfo.year}`}<br />
                 {imageInfo.medium && `${imageInfo.medium}`}<br />
                 {imageInfo.dimensions && ` ${imageInfo.dimensions}`}

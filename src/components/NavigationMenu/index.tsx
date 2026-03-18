@@ -9,7 +9,6 @@ import Name from "@/components/Name";
 const NavMenu: React.FC = () => {
     const searchParams = useSearchParams()
     const fullscreen = searchParams.get('fullscreen');
-    console.log('fullscreen:', fullscreen, fullscreen === 'true');
     return (
         <AppBar
             color="transparent"

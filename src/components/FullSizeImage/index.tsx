@@ -75,7 +75,7 @@ const SingleImage: FC<TArtwork> = artwork => {
                         },
                     }}
                 >
-                    {artwork.title}, {artwork.year ? artwork.year : ''}, {artwork.medium ? artwork.medium : ''}, {artwork.dimensions ? artwork.dimensions : ''}
+                    {artwork.title}, {artwork.year ? artwork.year : ''}{artwork.medium ? `, ${artwork.medium}`: ''}{artwork.dimensions ? `, ${artwork.dimensions}`: ''}
                 </Typography>
                 <Button
                     onClick={handleClose}
