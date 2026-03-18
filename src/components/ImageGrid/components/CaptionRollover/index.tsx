@@ -30,6 +30,7 @@ const RolloverCaptions: FC<TRolloverCaptionsProps> = imageInfo => {
                 width: '100%',
                 pointerEvents: 'none',
                 inset: 0,
+                borderRadius: 2,
             }}
         >
             <Typography
@@ -38,12 +39,12 @@ const RolloverCaptions: FC<TRolloverCaptionsProps> = imageInfo => {
                 component="div"
                 sx={{
                     lineHeight: 1.2,
-                    marginTop: 1.5,
                     height: '100%',
-                    paddingTop: 2,
-                    paddingLeft: 2,
+                    paddingTop: 3,
+                    paddingLeft: 2.5,
                 }} >
-                {imageInfo.altDescription && `${imageInfo.altDescription}\n`}
+                {imageInfo.altDescription && `${imageInfo.altDescription}`}
+                {imageInfo.altDescription && <br/>}
                 {imageInfo.year && `${imageInfo.year}`}<br />
                 {imageInfo.medium && `${imageInfo.medium}`}<br />
                 {imageInfo.dimensions && ` ${imageInfo.dimensions}`}

@@ -35,12 +35,8 @@ export function createMuiTheme(): Theme {
             h3: {
                 fontFamily: circularFont,
                 fontWeight: 700,
-                fontSize: '1.75rem',
+                fontSize: 'clamp(1.25rem, 2.3vw, 1.75rem)',
                 lineHeight: 1.2,
-                [mediaQueries.mobile]: {
-                    fontSize: '1.5rem',
-                    lineHeight: 1.15
-                }
             },
             h1Italic: {
                 fontFamily: circularFont,
