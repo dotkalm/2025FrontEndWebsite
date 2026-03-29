@@ -31,9 +31,7 @@ const NavMenu: React.FC = () => {
                     paddingLeft: 0,
                 }}
             >
-                <Name 
-                    fullscreen={fullscreen === 'true'}
-                />
+                <Name/>
             </Toolbar>
         </AppBar>
     );
